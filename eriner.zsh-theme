@@ -47,6 +47,7 @@ _prompt_eriner_status() {
   if (( EUID == 0 )) segment+=' %F{yellow}⚡'
   if (( $(jobs -l | wc -l) )) segment+=' %F{cyan}⚙'
   if (( RANGER_LEVEL )) segment+=' %F{cyan}r'
+  if [[ -e /.dockerenv ]] segment+=' %F{cyan}🐳'
   if [[ -n ${VIRTUAL_ENV} ]] segment+=" %F{cyan}${VIRTUAL_ENV:t}"
   if [[ -n ${SSH_TTY} ]] segment+=" %F{%(!.yellow.default)}%n@%m"
   if [[ -n ${segment} ]]; then
